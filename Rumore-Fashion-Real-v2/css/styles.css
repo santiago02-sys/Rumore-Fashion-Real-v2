@@ -1,0 +1,893 @@
+/* Colores reutilizables de la identidad visual. */
+:root {
+    --black: #090909;
+    --red: #d71920;
+    --white: #ffffff;
+    --gray: #8b8b8b;
+    --light: #f1f1f1;
+    --line: #d9d9d9;
+}
+
+/* Eliminamos márgenes automáticos y usamos box-sizing para facilitar el diseño. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+}
+
+/* ==========================================================
+   ENCABEZADO
+   ========================================================== */
+.header {
+    min-height: 74px;
+    padding: 16px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+/* El logo pequeño identifica la marca en todo momento mientras se navega. */
+.logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--red);
+}
+
+.logo span {
+    color: var(--white);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav a,
+.cart-button {
+    color: var(--white);
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.nav a:hover,
+.cart-button:hover {
+    color: var(--red);
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: var(--white);
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+/* ==========================================================
+   PORTADA
+   ========================================================== */
+.hero {
+    min-height: 78vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 80px 6%;
+    color: var(--white);
+
+    /* Fotografía real de la tienda como fondo. */
+    background-image: url("../img/tienda/tienda-interior.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,.84), rgba(0,0,0,.25));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+}
+
+/*
+   Logo principal de la portada.
+   Se muestra grande para que la marca sea lo primero que vea el visitante.
+*/
+.hero-logo {
+    width: clamp(190px, 28vw, 360px);
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    border: 6px solid rgba(255,255,255,.9);
+    box-shadow: 0 0 0 10px rgba(215,25,32,.25), 0 20px 70px rgba(0,0,0,.55);
+    margin-bottom: 30px;
+    animation: logoEntrance 1s ease-out both, logoGlow 3s ease-in-out 1s infinite;
+}
+
+@keyframes logoEntrance {
+    from {
+        opacity: 0;
+        transform: scale(.72) rotate(-6deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 10px rgba(215,25,32,.22), 0 20px 70px rgba(0,0,0,.55);
+    }
+    50% {
+        box-shadow: 0 0 0 18px rgba(215,25,32,.08), 0 24px 85px rgba(215,25,32,.28);
+    }
+}
+
+.eyebrow {
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-family: "Anton", Impact, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: clamp(3rem, 8vw, 7.5rem);
+    line-height: .92;
+    margin: 18px 0;
+    max-width: 850px;
+}
+
+.hero p:not(.eyebrow) {
+    max-width: 560px;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 26px;
+    background: var(--red);
+    color: var(--white);
+    border: 0;
+    text-decoration: none;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-dark {
+    background: var(--black);
+}
+
+/* ==========================================================
+   SECCIONES GENERALES
+   ========================================================== */
+.products-section,
+.store,
+.contact {
+    padding: 100px 6%;
+}
+
+.section-heading {
+    max-width: 760px;
+    margin-bottom: 48px;
+}
+
+.section-heading h2,
+.about h2 {
+    font-size: clamp(2.4rem, 5vw, 4.8rem);
+    line-height: .95;
+    margin: 12px 0 20px;
+}
+
+.section-heading > p:last-child {
+    color: #666;
+}
+
+/* ==========================================================
+   TARJETAS DE PRODUCTOS
+   ========================================================== */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.product-card {
+    background: var(--light);
+    overflow: hidden;
+}
+
+.product-image {
+    height: 390px;
+    position: relative;
+    background: #ddd;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.04);
+}
+
+.product-image span {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: var(--red);
+    color: var(--white);
+    padding: 5px 9px;
+    font-size: .65rem;
+    font-weight: 800;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.category {
+    color: #777;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.product-info h3 {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.price {
+    margin: 12px 0;
+    font-weight: 700;
+}
+
+.add-cart {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--black);
+    background: transparent;
+    color: var(--black);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.add-cart:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* Indicador de inventario visible en cada producto. */
+.stock {
+    color: #555;
+    font-size: .78rem;
+    font-weight: 700;
+    margin: 8px 0 14px;
+}
+
+.stock-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #20a35a;
+    margin-right: 5px;
+}
+
+.stock.low .stock-dot { background: var(--red); }
+.stock.sold-out { color: var(--red); }
+.stock.sold-out .stock-dot { background: var(--red); }
+
+/* ==========================================================
+   GALERÍA DE LA TIENDA
+   ========================================================== */
+.store {
+    background: #f4f4f4;
+}
+
+.store-gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 18px;
+}
+
+.store-gallery figure {
+    margin: 0;
+    position: relative;
+    min-height: 320px;
+    overflow: hidden;
+    background: #222;
+}
+
+.store-gallery img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.store-gallery figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    color: var(--white);
+    background: linear-gradient(transparent, rgba(0,0,0,.8));
+    font-weight: 700;
+}
+
+/* ==========================================================
+   SOBRE NOSOTROS
+   ========================================================== */
+.about {
+    padding: 100px 6%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    background: var(--black);
+    color: var(--white);
+}
+
+.about .eyebrow {
+    color: var(--red);
+}
+
+.about-text {
+    align-self: end;
+    max-width: 600px;
+}
+
+.about-text p + p {
+    margin-top: 20px;
+    color: #bbb;
+}
+
+/* ==========================================================
+   FORMULARIO
+   ========================================================== */
+.contact-form {
+    max-width: 680px;
+    display: grid;
+    gap: 9px;
+}
+
+.contact-form label {
+    margin-top: 12px;
+    font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--line);
+    background: #fafafa;
+    font: inherit;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.form-message {
+    min-height: 25px;
+    font-weight: 700;
+}
+
+/* ==========================================================
+   PIE DE PÁGINA
+   ========================================================== */
+.footer {
+    padding: 36px 6%;
+    background: #050505;
+    color: #aaa;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer strong {
+    color: var(--white);
+}
+
+/* ==========================================================
+   CARRITO
+   ========================================================== */
+.cart-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,.72);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cart-modal.show {
+    display: flex;
+}
+
+.cart-box {
+    width: min(560px, 100%);
+    max-height: 80vh;
+    overflow: auto;
+    position: relative;
+    padding: 34px;
+    background: var(--white);
+}
+
+.close-cart {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    border: 0;
+    background: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.cart-item button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.cart-total {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ==========================================================
+   DISEÑO RESPONSIVE
+   Cambia la cantidad de columnas para pantallas pequeñas.
+   ========================================================== */
+@media (max-width: 1000px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .store-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-large {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 700px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 74px;
+        padding: 22px 6%;
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--black);
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 88vh;
+        background-position: 60% center;
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .hero-logo {
+        width: min(260px, 72vw);
+        margin-bottom: 24px;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .products-section,
+    .store,
+    .contact,
+    .about {
+        padding: 70px 5%;
+    }
+
+    .products-grid,
+    .store-gallery,
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-large {
+        grid-column: auto;
+    }
+
+    .product-image {
+        height: 420px;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+}
+
+
+/* ==========================================================
+   CARRITO RUMORE - DISEÑO PREMIUM
+   ========================================================== */
+.cart-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(0,0,0,.78);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+.cart-modal.show { display: flex; animation: cartFade .2s ease-out; }
+@keyframes cartFade { from { opacity: 0; } to { opacity: 1; } }
+.cart-box {
+    width: min(620px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    background: #111;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,.16);
+    box-shadow: 0 30px 100px rgba(0,0,0,.7);
+    padding: 32px;
+}
+.close-cart { position: absolute; top: 12px; right: 18px; border: 0; background: transparent; color: var(--white); font-size: 2.2rem; cursor: pointer; }
+.cart-heading { padding-right: 45px; margin-bottom: 25px; }
+.cart-heading h2 { font-family: "Anton", Impact, sans-serif; text-transform: uppercase; letter-spacing: 1px; font-size: 2.8rem; line-height: 1; margin: 8px 0; }
+.cart-heading p:last-child { color: #aaa; }
+.cart-item { display: grid; grid-template-columns: 1fr auto; gap: 10px 18px; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+.cart-item-name { font-weight: 800; }
+.cart-item-price { text-align: right; font-weight: 800; }
+.cart-item-controls { display: flex; align-items: center; gap: 7px; }
+.qty-button { width: 32px; height: 32px; border: 1px solid #555; background: #1b1b1b; color: var(--white); cursor: pointer; font-weight: 900; }
+.qty-button:hover { border-color: var(--red); color: var(--red); }
+.qty-number { min-width: 28px; text-align: center; font-weight: 800; }
+.remove-item { margin-left: 10px; border: 0; background: transparent; color: #aaa; cursor: pointer; }
+.remove-item:hover { color: var(--red); }
+.cart-summary { margin-top: 24px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.18); }
+.cart-total { display: flex; justify-content: space-between; align-items: center; font-size: 1.15rem; margin-bottom: 18px; }
+.cart-total strong { color: var(--white); font-size: 1.35rem; }
+.checkout-button { width: 100%; padding: 16px 20px; border: 0; background: var(--red); color: var(--white); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
+.checkout-button:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(215,25,32,.28); }
+.checkout-button:disabled { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+.payment-note { margin-top: 12px; color: #999; font-size: .75rem; line-height: 1.5; }
+.payment-message { margin-top: 12px; padding: 12px; border-left: 3px solid var(--red); color: #ddd; background: rgba(215,25,32,.08); font-size: .82rem; }
+.empty-cart { color: #aaa; padding: 30px 0; }
+@media (max-width: 650px) { .cart-box { padding: 25px 20px; } .cart-heading h2 { font-size: 2.3rem; } }
+
+
+/* ==========================================================
+   TITULAR DE PORTADA - EFECTO VIDRIO / TRANSPARENTE
+   La fotografía sigue siendo visible a través de las letras.
+   El contorno blanco mantiene la lectura del mensaje.
+   ========================================================== */
+.hero h1 {
+    color: rgba(255, 255, 255, 0.12);
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.92);
+    text-shadow: 0 0 18px rgba(255,255,255,.08), 0 8px 35px rgba(0,0,0,.55);
+    letter-spacing: 2px;
+}
+
+.hero h1:hover {
+    color: rgba(215, 25, 32, 0.18);
+    -webkit-text-stroke-color: rgba(255,255,255,.98);
+    transition: .35s ease;
+}
+
+/* También damos un acabado semitransparente a la frase pequeña. */
+.hero-content > p:not(.eyebrow) {
+    color: rgba(255,255,255,.88);
+    text-shadow: 0 2px 12px rgba(0,0,0,.7);
+}
+
+/* ==========================================================
+   CARRITO - EXPERIENCIA VISUAL PREMIUM RUMORE
+   ========================================================== */
+.cart-modal {
+    background: rgba(3,3,3,.72);
+    backdrop-filter: blur(14px) saturate(1.15);
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+}
+
+.cart-box {
+    border: 1px solid rgba(215,25,32,.55);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(215,25,32,.18), transparent 32%),
+        linear-gradient(145deg, #171717, #090909 65%);
+    box-shadow: 0 35px 110px rgba(0,0,0,.85), 0 0 45px rgba(215,25,32,.12);
+    overflow: hidden;
+}
+
+.cart-box::before {
+    content: "RUMORE";
+    position: absolute;
+    top: 18px;
+    right: 70px;
+    color: rgba(255,255,255,.035);
+    font-family: "Anton", Impact, sans-serif;
+    font-size: 5rem;
+    line-height: 1;
+    letter-spacing: 4px;
+    pointer-events: none;
+}
+
+.cart-heading {
+    position: relative;
+    padding: 8px 0 24px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.cart-heading .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    padding: 7px 11px;
+    border: 1px solid rgba(215,25,32,.5);
+    background: rgba(215,25,32,.1);
+    border-radius: 999px;
+}
+
+.cart-heading .eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 12px var(--red);
+}
+
+.cart-heading h2 {
+    font-size: clamp(2.8rem, 7vw, 4.2rem);
+    margin-top: 14px;
+    text-shadow: 0 8px 30px rgba(0,0,0,.5);
+}
+
+.close-cart {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+    z-index: 3;
+    transition: .2s ease;
+}
+
+.close-cart:hover {
+    background: var(--red);
+    border-color: var(--red);
+    transform: rotate(90deg);
+}
+
+.cart-item {
+    position: relative;
+    padding: 19px 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.cart-item-name {
+    font-size: 1rem;
+    letter-spacing: .2px;
+}
+
+.cart-item-price {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.cart-item-controls {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    padding: 7px;
+}
+
+.qty-button {
+    border-radius: 10px;
+    background: #202020;
+    border-color: rgba(255,255,255,.16);
+    transition: .2s ease;
+}
+
+.qty-button:hover {
+    background: var(--red);
+    color: #fff;
+    border-color: var(--red);
+}
+
+.qty-number {
+    font-size: 1rem;
+}
+
+.remove-item {
+    padding: 7px 11px;
+    border-radius: 9px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: transparent;
+    transition: .2s ease;
+}
+
+.remove-item:hover {
+    background: rgba(215,25,32,.12);
+}
+
+.cart-summary {
+    margin-top: 24px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,.11);
+    border-radius: 18px;
+    background: rgba(255,255,255,.035);
+}
+
+.cart-total {
+    margin-bottom: 20px;
+}
+
+.cart-total span {
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: .75rem;
+    font-weight: 800;
+}
+
+.cart-total strong {
+    font-size: 1.55rem;
+    color: #fff;
+}
+
+.checkout-button {
+    position: relative;
+    overflow: hidden;
+    border-radius: 13px;
+    padding: 17px 20px;
+    background: linear-gradient(100deg, #b80f16, #ed1c24, #b80f16);
+    background-size: 200% 100%;
+    box-shadow: 0 12px 35px rgba(215,25,32,.22);
+    animation: paymentPulse 3s ease-in-out infinite;
+}
+
+.checkout-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+    transform: skewX(-20deg);
+    animation: buttonShine 3.5s ease-in-out infinite;
+}
+
+@keyframes buttonShine {
+    0%, 55% { left: -80%; }
+    75%, 100% { left: 130%; }
+}
+
+@keyframes paymentPulse {
+    0%, 100% { box-shadow: 0 12px 35px rgba(215,25,32,.18); }
+    50% { box-shadow: 0 16px 42px rgba(215,25,32,.35); }
+}
+
+.checkout-button:hover {
+    background-position: 100% 0;
+    transform: translateY(-3px) scale(1.01);
+}
+
+.payment-note {
+    text-align: center;
+    color: #8e8e8e;
+}
+
+.payment-message {
+    border-radius: 10px;
+}
+
+@media (max-width: 650px) {
+    .hero h1 {
+        -webkit-text-stroke-width: 1.2px;
+        color: rgba(255,255,255,.14);
+    }
+
+    .cart-box {
+        width: 100%;
+        max-height: 92vh;
+        border-radius: 20px;
+        padding: 24px 18px;
+    }
+
+    .cart-box::before {
+        font-size: 3.3rem;
+        right: 54px;
+    }
+
+    .cart-heading h2 {
+        font-size: 2.6rem;
+    }
+}
+
+.cart-trust { margin-top: 14px; color: #8e8e8e; font-size: .72rem; text-transform: uppercase; letter-spacing: 1.1px; }

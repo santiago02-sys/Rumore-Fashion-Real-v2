@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Permite usar correctamente tildes, ñ y otros caracteres especiales. -->
+    <meta charset="UTF-8">
+
+    <!-- Hace que la página se adapte a celulares, tabletas y computadores. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Nombre que aparece en la pestaña del navegador. -->
+    <title>Rumore Fashion | Streetwear</title>
+
+    <!-- Conecta este HTML con los estilos visuales. -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- =====================================================
+         ENCABEZADO Y MENÚ
+         Aquí se encuentra el nombre de la tienda y los enlaces.
+         ===================================================== -->
+    <header class="header">
+        <a href="#inicio" class="logo" aria-label="Rumore Fashion - Inicio">
+            <!-- Logo oficial proporcionado para la identidad visual de la tienda. -->
+            <img src="img/marca/logo-rumore.png" alt="Logo de Rumore Fashion">
+            <span>RUMORE FASHION</span>
+        </a>
+
+        <!-- Este botón aparece principalmente en celulares. -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+        <nav class="nav" id="mainNav">
+            <a href="#inicio">Inicio</a>
+            <a href="#coleccion">Colección</a>
+            <a href="#tienda">Nuestra tienda</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+
+            <!-- El contador cambia con JavaScript cuando agregamos productos. -->
+            <button class="cart-button" id="cartButton">
+                Carrito (<span id="cartCount">0</span>)
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- =====================================================
+             PORTADA
+             Usa una fotografía real de la tienda como fondo.
+             ===================================================== -->
+        <section class="hero" id="inicio">
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <!-- El logo aparece grande para crear una primera impresión fuerte. -->
+                <img class="hero-logo" src="img/marca/logo-rumore.png" alt="Rumore Fashion">
+                <p class="eyebrow">RUMORE FASHION · STREETWEAR</p>
+                <!-- Título con efecto de letras transparentes para dejar ver la fotografía del fondo. -->
+                <h1 class="hero-glass-title">No dejes que te lo cuenten.</h1>
+                <p>
+                    Estilo urbano, gráficos y prendas con personalidad.
+                    Conoce la colección de Rumore Fashion.
+                </p>
+                <a href="#coleccion" class="btn">Ver colección</a>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             COLECCIÓN
+             Cada tarjeta representa un producto real de las fotos
+             proporcionadas para el proyecto.
+             ===================================================== -->
+        <section class="products-section" id="coleccion">
+            <div class="section-heading">
+                <p class="eyebrow">COLECCIÓN RUMORE</p>
+                <h2>Prendas que hablan por ti.</h2>
+                <p>
+                    Una selección de camisetas gráficas y pantalones
+                    inspirados en el estilo de la tienda.
+                </p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <article class="product-card" data-name="Buzo Graffiti" data-price="88000" data-stock="5">
+                    <div class="product-image">
+                        <img src="img/productos/camiseta-graffiti.jpg" alt="Camisetas gráficas de Rumore Fashion">
+                        <span>NOVEDAD</span>
+                    </div>
+                    <div class="product-info">
+                        <p class="category">BUZOS</p>
+                        <h3>Camiseta Graffiti</h3>
+                        <p class="price">$88.000 COP</p>
+                        <p class="stock"><span class="stock-dot"></span> 5 unidades disponibles</p>
+                        <button class="add-cart">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="product-card" data-name="Buzo Azul Gráfico" data-price="88000" data-stock="5">
+                    <div class="product-image">
+                        <img src="img/productos/camiseta-azul.jpg" alt="Camiseta azul gráfica">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">BUZOS</p>
+                        <h3>Camiseta Azul Gráfica</h3>
+                        <p class="price">$88.000 COP</p>
+                        <p class="stock"><span class="stock-dot"></span> 5 unidades disponibles</p>
+                        <button class="add-cart">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="product-card" data-name="Buzo Ángel" data-price="88000" data-stock="5">
+                    <div class="product-image">
+                        <img src="img/productos/camiseta-angel.jpg" alt="Camiseta gráfica con diseño de ángel">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">BUZOS</p>
+                        <h3>Camiseta Ángel</h3>
+                        <p class="price">$88.000 COP</p>
+                        <p class="stock"><span class="stock-dot"></span> 5 unidades disponibles</p>
+                        <button class="add-cart">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="product-card" data-name="Buzo Rumore" data-price="88000" data-stock="5">
+                    <div class="product-image">
+                        <img src="img/productos/camiseta-rumore.jpg" alt="Camiseta gráfica Rumore">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">BUZOS</p>
+                        <h3>Camiseta Rumore</h3>
+                        <p class="price">$88.000 COP</p>
+                        <p class="stock"><span class="stock-dot"></span> 5 unidades disponibles</p>
+                        <button class="add-cart">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 5 -->
+                <article class="product-card" data-name="Buzo Gráfica Urban" data-price="88000" data-stock="5">
+                    <div class="product-image">
+                        <img src="img/productos/camiseta-grafica.jpg" alt="Camiseta gráfica estilo urbano">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">BUZOS</p>
+                        <h3>Camiseta Gráfica Urban</h3>
+                        <p class="price">$88.000 COP</p>
+                        <p class="stock"><span class="stock-dot"></span> 5 unidades disponibles</p>
+                        <button class="add-cart">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 6 -->
+                <article class="product-card" data-name="Buzo Majestik" data-price="88000" data-stock="5">
+                    <div class="product-image">
+                        <img src="img/productos/camiseta-majestik.jpg" alt="Camiseta Majestik">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">BUZOS</p>
+                        <h3>Camiseta Majestik</h3>
+                        <p class="price">$88.000 COP</p>
+                        <p class="stock"><span class="stock-dot"></span> 5 unidades disponibles</p>
+                        <button class="add-cart">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 7 -->
+                <article class="product-card" data-name="Pantalón PB 396" data-price="180000" data-stock="5">
+                    <div class="product-image">
+                        <img src="img/productos/pantalon-pb396.jpg" alt="Pantalón de mezclilla PB 396">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">PANTALONES</p>
+                        <h3>Pantalón PB 396</h3>
+                        <p class="price">$180.000 COP</p>
+                        <p class="stock"><span class="stock-dot"></span> 5 unidades disponibles</p>
+                        <button class="add-cart">Agregar al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 8 -->
+                <article class="product-card" data-name="Pantalón PB 501" data-price="180000" data-stock="5">
+                    <div class="product-image">
+                        <img src="img/productos/pantalon-pb501.jpg" alt="Pantalón oscuro PB 501">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">PANTALONES</p>
+                        <h3>Pantalón PB 501</h3>
+                        <p class="price">$180.000 COP</p>
+                        <p class="stock"><span class="stock-dot"></span> 5 unidades disponibles</p>
+                        <button class="add-cart">Agregar al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             GALERÍA DE LA TIENDA
+             Muestra fotografías reales del local por dentro y fuera.
+             ===================================================== -->
+        <section class="store" id="tienda">
+            <div class="section-heading">
+                <p class="eyebrow">CONÓCENOS</p>
+                <h2>Así se vive Rumore.</h2>
+                <p>Una mirada al espacio físico y al ambiente de la tienda.</p>
+            </div>
+
+            <div class="store-gallery">
+                <figure class="gallery-large">
+                    <img src="img/tienda/tienda-interior.jpg" alt="Interior de la tienda Rumore Fashion">
+                    <figcaption>Interior de Rumore Fashion</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="img/tienda/fachada-rumore.png" alt="Fachada de Rumore Fashion">
+                    <figcaption>Fachada y entrada</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="img/tienda/maniqui-tienda.png" alt="Maniquí con ropa de Rumore Fashion">
+                    <figcaption>Estilo Rumore</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             NOSOTROS
+             Texto de presentación de la marca.
+             ===================================================== -->
+        <section class="about" id="nosotros">
+            <div>
+                <p class="eyebrow">SOBRE RUMORE</p>
+                <h2>Una tienda con identidad urbana.</h2>
+            </div>
+
+            <div class="about-text">
+                <p>
+                    Rumore Fashion combina moda urbana, estampados llamativos
+                    y prendas para quienes quieren construir un estilo propio.
+                </p>
+                <p>
+                    Esta página fue diseñada para presentar la colección,
+                    mostrar el espacio de la tienda y facilitar una futura
+                    experiencia de compra en línea.
+                </p>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             CONTACTO
+             El formulario funciona como demostración mediante JavaScript.
+             ===================================================== -->
+        <section class="contact" id="contacto">
+            <div class="section-heading">
+                <p class="eyebrow">CONTACTO</p>
+                <h2>Hablemos.</h2>
+                <p>Escríbenos para consultar disponibilidad o productos.</p>
+            </div>
+
+            <form id="contactForm" class="contact-form">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="tucorreo@email.com" required>
+
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" rows="5" placeholder="¿Qué producto te interesa?" required></textarea>
+
+                <button type="submit" class="btn btn-dark">Enviar mensaje</button>
+                <p id="formMessage" class="form-message"></p>
+            </form>
+        </section>
+    </main>
+
+    <!-- =====================================================
+         PIE DE PÁGINA
+         ===================================================== -->
+    <footer class="footer">
+        <div>
+            <strong>RUMORE FASHION</strong>
+            <p>Streetwear · Moda · Identidad</p>
+        </div>
+        <p>© 2026 Rumore Fashion. Proyecto académico.</p>
+    </footer>
+
+    <!-- =====================================================
+         MODAL DEL CARRITO
+         Esta ventana muestra productos, cantidades, total y pago.
+         ===================================================== -->
+    <div class="cart-modal" id="cartModal" aria-hidden="true">
+        <div class="cart-box">
+            <button class="close-cart" id="closeCart" aria-label="Cerrar carrito">×</button>
+
+            <div class="cart-heading">
+                <p class="eyebrow">RUMORE CHECKOUT</p>
+                <h2>Tu carrito</h2>
+                <p>Revisa tus prendas antes de continuar al pago.</p><div class="cart-trust">Compra tu estilo · 5 unidades por referencia · Pago seguro</div>
+            </div>
+
+            <div id="cartItems">
+                <p class="empty-cart">
+                    Tu carrito está vacío. Agrega una prenda de la colección.
+                </p>
+            </div>
+
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Subtotal</span>
+                    <strong id="cartTotal">$0 COP</strong>
+                </div>
+
+                <!--
+                    Este botón usa un enlace de pago de Wompi.
+                    Para activarlo con dinero real debes colocar en script.js
+                    el link de pago creado para el comercio.
+                -->
+                <button class="checkout-button" id="checkoutButton">
+                    Pagar ahora
+                </button>
+
+                <p class="payment-note">
+                    Pago seguro mediante Wompi: PSE, Bancolombia, Nequi y tarjetas,
+                    según los métodos habilitados para tu comercio.
+                </p>
+                <p id="paymentMessage" class="payment-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conecta el HTML con la lógica de JavaScript. -->
+    <script src="js/script.js"></script>
+</body>
+</html>
